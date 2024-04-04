@@ -37,7 +37,7 @@ typedef struct instruction_s
 
 extern instruction_t *operations [];
 
-void *push(stack_t **top, const int n);
+void push(stack_t **top, const int n);
 void pall(const stack_t *top, int n);
 
 

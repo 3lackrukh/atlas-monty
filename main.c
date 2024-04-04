@@ -13,30 +13,32 @@
 int main(int ac, char **av, char **env)
 {
     int status = 1, line_ct = 0, i, match, value;
-    stack_t *top;
+    stack_t *top = NULL;
     FILE *file;
     char *line = NULL, *token, *val_str;
     size_t len = 0;
     ssize_t read;
+
     /*check for 2 arguments*/
     if (ac != 2)
     {
-        fprintf(stderr, "USAGE: monty file\n")
+        fprintf(stderr, "USAGE: monty file\n");
         exit(EXIT_FAILURE);
     }
+    
     /*open file*/
-    file = fopen(av[1], "r")
-    if (file = NULL)
+    file = fopen(av[1], "r");
+    if (file == NULL)
     {
         fprintf(stderr, "Error: Can't open file %s\n", av[1]);
         exit(EXIT_FAILURE);
     }
+
     /*read and parse line*/
     while ((read = getline(&line, &len, file)) != -1)
     {
-        line_ct++
+        line_ct++;
         /*tokenize line read with delimiters ( $)*/
-        /*dont forget strtok doesnt allocate memory*/
         token = strtok(line, ' ');
         match = 0;
         for (i = 0; operations[i] != NULL && !match; i++)
@@ -46,7 +48,7 @@ int main(int ac, char **av, char **env)
                 match = 1;
                 val_str = strtok(NULL, '$');
                 value = atoi(val_str);
-                operations[i].f(&top, value);
+                operations[i]->f(&top, value);
             }
             else
             {
@@ -54,11 +56,12 @@ int main(int ac, char **av, char **env)
                 free(line);
                 exit(EXIT_FAILURE);
             }
-        }
+	}
     }
     /*clean up allocated memory from line*/
     free(line);
     /*close file*/
     fclose(file);
-    exit(EXIT_SUCCESS)
+    exit(EXIT_SUCCESS);
 }
+
