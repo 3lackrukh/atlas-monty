@@ -10,9 +10,9 @@
  * @env: vector of environment variables.
 */
 
-int main(int ac, char **av, char **env)
+int main(int ac, char **av)
 {
-    int status = 1, line_ct = 0, i, match, value;
+    int line_ct = 0, i, match, value;
     stack_t *top = NULL;
     FILE *file;
     char *line = NULL, *token, *val_str;
@@ -39,16 +39,16 @@ int main(int ac, char **av, char **env)
     {
         line_ct++;
         /*tokenize line read with delimiters ( $)*/
-        token = strtok(line, ' ');
+        token = strtok(line, " ");
         match = 0;
-        for (i = 0; operations[i] != NULL && !match; i++)
+        for (i = 0; operations[i].opcode != NULL && !match; i++)
         {
-            if (!strcmp(token, operations[i].op_code))
+            if (!strcmp(token, operations[i].opcode))
             {
                 match = 1;
-                val_str = strtok(NULL, '$');
+                val_str = strtok(NULL, "$");
                 value = atoi(val_str);
-                operations[i]->f(&top, value);
+                operations[i].f(&top, value);
             }
             else
             {

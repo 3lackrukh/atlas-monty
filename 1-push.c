@@ -12,7 +12,7 @@
  * Return: the top of the stack.
  */
 
-void push(stack_t **top, const int n)
+void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 
@@ -22,12 +22,12 @@ void push(stack_t **top, const int n)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = n;
+	new_node->n = line_number;
 	new_node->prev = NULL;
-	new_node->next = *top;
+	new_node->next = *stack;
 
-	if (*top != NULL)
-		(*top)->prev  = new_node;
+	if (*stack != NULL)
+		(*stack)->prev  = new_node;
 
-	*top = new_node;
+	*stack = new_node;
 }

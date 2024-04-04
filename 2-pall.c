@@ -7,16 +7,15 @@
  * Return: nothing.
  */
 
-void pall(const stack_t *top, int n)
+void pall(stack_t **stack, unsigned int line_number)
 {
-    stack_t *temp = top;
+    stack_t *temp = *stack;
+    unsigned int i;
 
-    n = 0;
-	while (temp != NULL)
+	for (i = 0; temp != NULL && i < line_number; i++)
 	{
 		printf("%d\n", temp->n);
-		n++;
 		temp = temp->next;
 	}
-    printf("lines printed: %d\n", n)
+    printf("lines printed: %d\n", i);
 }
