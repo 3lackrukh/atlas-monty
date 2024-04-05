@@ -16,11 +16,12 @@ void op_find(void)
 	{NULL, NULL}
     };
     char *token;
-    int match = 0, i;
+    int match, i;
 
      /*tokenize line read with delimiters ( $)*/
     token = strtok(tools.line, " $");
     printf("token 1 = %s\n", token);
+    match = 0;
     for (i = 0; ops[i].opcode != NULL && !match; i++)
     {
         if (!strcmp(token, ops[i].opcode))
@@ -28,12 +29,10 @@ void op_find(void)
             match = 1;
             ops[i].f(tools.stack, tools.line_ct);
         }
-        else
-        {
-            fprintf(stderr, "L%d: unknown instruction %s\n", tools.line_ct, token);
-            free(tools.line);
-            free_stack();
-            exit(EXIT_FAILURE);
-        }
     }
-}
+
+    fprintf(stderr, "L%d: unknown instruction %s\n", tools.line_ct, token);
+    free(tools.line);
+    free_stack();
+    exit(EXIT_FAILURE);
+ }
