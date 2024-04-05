@@ -38,6 +38,7 @@ int main(int ac, char **av)
         if (tools.line_ct > 0)
             free(tools.line);
         tools.line_ct++;
+        printf("line to run: %s\n", tools.line);
         op_find();
 	}
     free(tools.line);
