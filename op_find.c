@@ -25,7 +25,7 @@ void op_find(void)
         if (!strcmp(token, ops[i].opcode))
         {
             match = 1;
-            ops[i].f(&tools.stack, tools.line_ct);
+            ops[i].f(tools.stack, tools.line_ct);
         }
         else
         {
