@@ -20,6 +20,7 @@ void op_find(void)
 
      /*tokenize line read with delimiters ( $)*/
     token = strtok(tools.line, " $");
+    printf("token 1 = %s\n", token);
     for (i = 0; ops[i].opcode != NULL && !match; i++)
     {
         if (!strcmp(token, ops[i].opcode))

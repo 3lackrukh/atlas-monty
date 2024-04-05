@@ -20,7 +20,9 @@ void push(stack_t **stack, unsigned int line_number)
 	
 	(void) line_number;
 	val_str = strtok(tools.line, " $");
+	printf("value found = %s\n", val_str);
 	value = atoi(val_str);
+	printf("converted to int %d\n", value);
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
