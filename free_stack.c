@@ -8,13 +8,13 @@
 
 void free_stack(void)
 {
-	stack_t *current = tools.stack;
+	stack_t *current;
 	stack_t *next;
 
+	current = tools.stack;
 	while (current != NULL)
 	{
 		next = current->next;
-		free(current->n);
 		free(current);
 		current = next;
 	}
