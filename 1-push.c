@@ -31,6 +31,7 @@ void push(stack_t **stack, unsigned int line_number)
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
+	printf("new node creation = success");
 	new_node->n = value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
