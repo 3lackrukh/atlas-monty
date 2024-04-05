@@ -11,7 +11,7 @@ void free_stack(void)
 	stack_t *current;
 	stack_t *next;
 
-	current = *tools.stack;
+	current = tools.stack;
 	while (current != NULL)
 	{
 		next = current->next;

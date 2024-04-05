@@ -32,26 +32,10 @@ int main(int ac, char **av)
         fprintf(stderr, "Error: Can't open file %s\n", av[1]);
         exit(EXIT_FAILURE);
     }
-    tools.stack = malloc(sizeof(stack_t *));
-    if (tools.stack == NULL)
-    {
-	    fprintf(stderr, "Error: malloc failed\n");
-	    exit(EXIT_FAILURE);
-    }
-    *tools.stack = malloc(sizeof(stack_t));
-    if (*tools.stack == NULL)
-    {
-	    fprintf(stderr, "Error: malloc failed\n");
-	    free(tools.stack);
-	    exit(EXIT_FAILURE);
-    }
-    (*tools.stack)->prev = NULL;
-    (*tools.stack)->next = NULL;
-    
     while ((read = getline(&tools.line, &len, file)) != -1)
     {
-        if (tools.line_ct > 0)
-            free(tools.line);
+        /*if (tools.line_ct > 0)
+            free(tools.line);*/
         printf("bytes read on line %d = %ld\n", tools.line_ct, read);
         tools.line[read - 1] = '\0';
         tools.line_ct++;
