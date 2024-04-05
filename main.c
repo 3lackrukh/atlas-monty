@@ -35,8 +35,8 @@ int main(int ac, char **av)
 
     while ((read = getline(&tools.line, &len, file)) != -1)
     {
-        /*if (tools.line_ct > 0)
-            free(tools.line);*/
+        if (tools.line_ct > 0)
+            free(tools.line);
         tools.line_ct++;
         printf("line to run: %s\n", tools.line);
         op_find();
