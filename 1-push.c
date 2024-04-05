@@ -14,11 +14,11 @@
 
 void push(stack_t **stack, unsigned int line_number)
 {
-	(void) line_number;
 	stack_t *new_node;
 	char *val_str;
 	int value;
-
+	
+	(void) line_number;
 	val_str = strtok(tools.line, " $");
 	value = atoi(val_str);
 	new_node = malloc(sizeof(stack_t));
