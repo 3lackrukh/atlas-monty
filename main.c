@@ -41,7 +41,7 @@ int main(int ac, char **av)
         op_find();
 	}
     free(tools.line);
-    free_stack;
+    free_stack();
     fclose(file);
     exit(EXIT_SUCCESS);
 }

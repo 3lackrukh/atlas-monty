@@ -16,7 +16,7 @@ void op_find(void)
 	{NULL, NULL}
     };
     char *token;
-    int match = 0;
+    int match = 0, i;
 
      /*tokenize line read with delimiters ( $)*/
     token = strtok(tools.line, " $");
@@ -31,7 +31,7 @@ void op_find(void)
         {
             fprintf(stderr, "L%d: unknown instruction %s\n", tools.line_ct, token);
             free(tools.line);
-            free_stack;
+            free_stack();
             exit(EXIT_FAILURE);
         }
     }
