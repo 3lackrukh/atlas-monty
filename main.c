@@ -15,9 +15,9 @@ int main(int ac, char **av)
     size_t len = 0;
     ssize_t read;
     toolbox tools = {
-        line = NULL,
-        line_ct = 0,
-        stack = NULL,
+        .line = NULL,
+        .line_ct = 0,
+        .stack = NULL,
     };
 
     if (ac != 2)
