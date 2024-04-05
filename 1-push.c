@@ -15,14 +15,14 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = NULL;
-	char *val_str;
+	char *val_str = NULL;
 	int value;
 	
 	(void) line_number;
 	val_str = strtok(NULL, " $");
 	printf("value found = %s\n", val_str);
 	value = atoi(val_str);
-	/*printf("converted to int %d\n", value);*/
+	printf("converted to int %d\n", value);
 	printf("new node creation attempt");
 	new_node = malloc(sizeof(stack_t));
 	;
