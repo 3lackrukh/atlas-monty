@@ -14,11 +14,14 @@ int main(int ac, char **av)
 {
     int i, match;
     unsigned int line_ct = 0;
-    stack_t *stack = NULL;
     FILE *file;
-    char *line = NULL, *token,
     size_t len = 0;
     ssize_t read;
+    toolbox tools = {
+        line = NULL,
+        line_ct = 0,
+        stack = NULL,
+    };
 
     /*check for 2 arguments*/
     if (ac != 2)
@@ -36,29 +39,18 @@ int main(int ac, char **av)
     }
 
     /*read and parse line*/
-    while ((read = getline(&line, &len, file)) != -1)
+    while ((read = getline(&tools.line, &len, file)) != -1)
     {
-        line_ct++;
-        /*tokenize line read with delimiters ( $)*/
-        token = strtok(line, " ");
-        match = 0;
-        for (i = 0; operations[i].opcode != NULL && !match; i++)
-        {
-            if (!strcmp(token, operations[i].opcode))
-            {
-                match = 1;
-                operations[i].f(&stack, line_ct);
-            }
-            else
-            {
-                fprintf(stderr, "L%d: unknown instruction %s\n", line_ct, token);
-                free(line);
-                exit(EXIT_FAILURE);
-            }
+        if (tools.line_ct > 0)
+            free(tools.line);
+        tools.line_ct++;
+        op_find;
+        
+
 	}
-    }
     /*clean up allocated memory from line*/
-    free(line);
+    free(tools.line);
+    /*free linked list*/
     /*close file*/
     fclose(file);
     exit(EXIT_SUCCESS);

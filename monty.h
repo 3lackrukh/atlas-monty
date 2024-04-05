@@ -35,7 +35,14 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern instruction_t operations [];
+typedef struct toolbox
+{
+        char *line;
+        unsigned int line_ct;
+        stack_t **stack;
+} toolbox;
+
+extern toolbox tools;
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
