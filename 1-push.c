@@ -19,6 +19,7 @@ void push(stack_t **stack, unsigned int line_number)
 	int value;
 	
 	(void) line_number;
+	strtok(tools.line, " $");
 	val_str = strtok(tools.line, " $");
 	printf("value found = %s\n", val_str);
 	value = atoi(val_str);
