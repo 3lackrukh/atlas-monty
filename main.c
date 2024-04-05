@@ -9,12 +9,13 @@
  * 
  * @env: vector of environment variables.
 */
+toolbox tools;
+
 int main(int ac, char **av)
 {
     FILE *file;
     size_t len = 0;
     ssize_t read;
-    toolbox tools;
     tools.line = NULL;
     tools.line_ct = 0;
     tools.stack = NULL;
