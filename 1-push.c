@@ -23,8 +23,9 @@ void push(stack_t **stack, unsigned int line_number)
 	printf("value found = %s\n", val_str);
 	value = atoi(val_str);
 	printf("converted to int %d\n", value);
-	new_node = malloc(sizeof(stack_t));
 	printf("new node creation attempt");
+	new_node = malloc(100/*sizeof(stack_t)*/);
+	;
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
