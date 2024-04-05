@@ -37,6 +37,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (*stack != NULL)
 		(*stack)->prev  = new_node;
+	printf("node set to stack with value %i\n", value);
 
 	*stack = new_node;
 	free(tools.line);
