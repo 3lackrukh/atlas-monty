@@ -12,10 +12,11 @@
 
 int main(int ac, char **av)
 {
-    int line_ct = 0, i, match, value;
-    stack_t *top = NULL;
+    int i, match;
+    unsigned int line_ct = 0;
+    stack_t *stack = NULL;
     FILE *file;
-    char *line = NULL, *token, *val_str;
+    char *line = NULL, *token,
     size_t len = 0;
     ssize_t read;
 
@@ -46,9 +47,7 @@ int main(int ac, char **av)
             if (!strcmp(token, operations[i].opcode))
             {
                 match = 1;
-                val_str = strtok(NULL, "$");
-                value = atoi(val_str);
-                operations[i].f(&top, value);
+                operations[i].f(&stack, line_ct);
             }
             else
             {
