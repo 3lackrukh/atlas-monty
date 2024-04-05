@@ -46,6 +46,8 @@ extern toolbox tools;
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+void free_stack(void);
+void op_find(void);
 
 
 

@@ -10,10 +10,10 @@
 
 void op_find(void)
 {
-    instruction_t ops = {
-        {"push", push},
-        {"pall", pall},
-        {NULL, NULL},
+    instruction_t ops [] = {
+	{"push", push},
+	{"pall", pall},
+	{NULL, NULL}
     };
     char *token;
     int match = 0;
@@ -31,6 +31,7 @@ void op_find(void)
         {
             fprintf(stderr, "L%d: unknown instruction %s\n", tools.line_ct, token);
             free(tools.line);
+            free_stack;
             exit(EXIT_FAILURE);
         }
     }
