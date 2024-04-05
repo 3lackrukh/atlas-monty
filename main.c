@@ -38,7 +38,7 @@ int main(int ac, char **av)
         if (tools.line_ct > 0)
             free(tools.line);
         tools.line_ct++;
-        op_find;
+        op_find();
 	}
     free(tools.line);
     free_stack;
