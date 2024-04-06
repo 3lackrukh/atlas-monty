@@ -34,12 +34,10 @@ int main(int ac, char **av)
     }
     while ((read = getline(&tools.line, &len, file)) != -1)
     {
-        /*if (tools.line_ct > 0)
-            free(tools.line);*/
         tools.line[read - 1] = '\0';
         tools.line_ct++;
         op_find();
-	}
+    }
     free(tools.line);
     free_stack();
     fclose(file);
