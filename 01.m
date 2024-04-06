@@ -1,6 +1,6 @@
-     push          1    $
+     push          a$
                              push 2$
-push 3$
+push $
 pall $
 
 push 12$
