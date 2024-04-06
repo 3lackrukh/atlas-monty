@@ -34,6 +34,8 @@ int main(int ac, char **av)
     }
     while ((read = getline(&tools.line, &len, file)) != -1)
     {
+	    if (read == 1)
+		    continue;
         tools.line[read - 1] = '\0';
         tools.line_ct++;
         op_find();
