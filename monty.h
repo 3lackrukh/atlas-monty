@@ -35,6 +35,17 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct toolbox- File pointer, string for processing, current line position and
+ * a pointer to the head of a doubly linked list.
+ * @file: points to the file being interpreted.
+ * @line: holds the current line being processed.
+ * @line_ct: int representing the current line number.
+ * @stack: pointer to the head of a doubly linked list.
+ *
+ * Description: a struct with space for all the variables the monty file interpreter
+ * can pass to various functions to track and interpret monty files.
+ */
 typedef struct toolbox
 {
 	FILE *file;

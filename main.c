@@ -7,9 +7,9 @@
  *
  * @av: vector of arguments.
  *
- * @env: vector of environment variables.
+ * Return: nothing.
 */
-toolbox tools;
+extern toolbox tools
 
 int main(int ac, char **av)
 {
