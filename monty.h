@@ -52,6 +52,7 @@ void op_find(void);
 void create_stack(void);
 void mem_set(char *str);
 int is_blank(char *str);
+int is_num(char *str);
 
 
 #endif

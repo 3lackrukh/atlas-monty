@@ -20,7 +20,7 @@ void push(stack_t **stack, unsigned int line_number)
 	
 	val_str = strtok(NULL, " \n$");
 
-	if ((val_str == NULL) || !(value = atoi(val_str)))
+	if ((val_str == NULL) || !(is_num(val_str)))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack();
@@ -28,6 +28,7 @@ void push(stack_t **stack, unsigned int line_number)
 		fclose(tools.file);
 		exit(EXIT_FAILURE);
 	}
+	value = atoi(val_str);
 	new_node = malloc(sizeof(stack_t));
 	;
 	if (new_node == NULL)
