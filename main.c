@@ -13,9 +13,9 @@ toolbox tools;
 
 int main(int ac, char **av)
 {
-    FILE *file;
     size_t len = 0;
     ssize_t read;
+    tools.file = NULL;
     tools.line = NULL;
     tools.line_ct = 0;
     tools.stack = NULL;
@@ -26,15 +26,15 @@ int main(int ac, char **av)
         exit(EXIT_FAILURE);
     }
     
-    file = fopen(av[1], "r");
-    if (file == NULL)
+    tools.file = fopen(av[1], "r");
+    if (tools.file == NULL)
     {
         fprintf(stderr, "Error: Can't open file %s\n", av[1]);
         exit(EXIT_FAILURE);
     }
-    while ((read = getline(&tools.line, &len, file)) != -1)
+    while ((read = getline(&tools.line, &len, tools.file)) != -1)
     {
-	    if (read == 1)
+	    if (read == 1 || is_blank(tools.line))
 		    continue;
         tools.line[read - 1] = '\0';
         tools.line_ct++;
@@ -42,7 +42,6 @@ int main(int ac, char **av)
     }
     free(tools.line);
     free_stack();
-    fclose(file);
+    fclose(tools.file);
     exit(EXIT_SUCCESS);
 }
-

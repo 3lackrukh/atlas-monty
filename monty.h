@@ -37,6 +37,7 @@ typedef struct instruction_s
 
 typedef struct toolbox
 {
+	FILE *file;
         char *line;
         unsigned int line_ct;
         stack_t *stack;
@@ -50,7 +51,7 @@ void free_stack(void);
 void op_find(void);
 void create_stack(void);
 void mem_set(char *str);
-
+int is_blank(char *str);
 
 
 #endif
