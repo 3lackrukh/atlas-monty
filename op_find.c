@@ -19,7 +19,7 @@ void op_find(void)
     int match, i;
 
      /*tokenize line read with delimiters ( $)*/
-    token = strtok(tools.line, " $");
+    token = strtok(tools.line, " $\n");
     match = 0;
     for (i = 0; ops[i].opcode != NULL && !match; i++)
     {

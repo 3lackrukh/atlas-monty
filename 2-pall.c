@@ -13,6 +13,8 @@ void pall(stack_t **stack, unsigned int line_number)
     unsigned int i;
 
 	(void)line_number;
+	if (*stack == NULL)
+		return;
 	for (i = 0; temp != NULL; i++)
 	{
 		printf("%d\n", temp->n);

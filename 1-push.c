@@ -19,7 +19,8 @@ void push(stack_t **stack, unsigned int line_number)
 	int value;
 	
 	val_str = strtok(NULL, " \n$");
-	if (!(value = atoi(val_str)))
+
+	if ((val_str == NULL) || !(value = atoi(val_str)))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack();

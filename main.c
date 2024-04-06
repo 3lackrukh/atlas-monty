@@ -34,10 +34,10 @@ int main(int ac, char **av)
     }
     while ((read = getline(&tools.line, &len, tools.file)) != -1)
     {
+	    tools.line_ct++;
 	    if (read == 1 || is_blank(tools.line))
 		    continue;
-        tools.line[read - 1] = '\0';
-        tools.line_ct++;
+        /*tools.line[read - 1] = '\0';*/
         op_find();
     }
     free(tools.line);
