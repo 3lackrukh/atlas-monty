@@ -36,10 +36,8 @@ int main(int ac, char **av)
     {
         /*if (tools.line_ct > 0)
             free(tools.line);*/
-        printf("bytes read on line %d = %ld\n", tools.line_ct, read);
         tools.line[read - 1] = '\0';
         tools.line_ct++;
-        printf("line to run: %s\n", tools.line);
         op_find();
 	}
     free(tools.line);

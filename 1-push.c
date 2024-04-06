@@ -20,10 +20,7 @@ void push(stack_t **stack, unsigned int line_number)
 	
 	(void) line_number;
 	val_str = strtok(NULL, " \n$");
-	printf("value found = %s\n", val_str);
 	value = atoi(val_str);
-	printf("converted to int %d\n", value);
-	printf("new node creation attempt\n");
 	new_node = malloc(sizeof(stack_t));
 	;
 	if (new_node == NULL)
@@ -33,14 +30,12 @@ void push(stack_t **stack, unsigned int line_number)
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
-	printf("success\n");
 	new_node->n = value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
 
 	if (*stack != NULL)
 		(*stack)->prev  = new_node;
-	printf("node set to stack with value %i\n", value);
 	*stack = new_node;
 	/*free(tools.line);*/
 }
