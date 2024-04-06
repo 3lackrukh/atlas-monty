@@ -9,7 +9,8 @@
  *
  * Return: nothing.
 */
-extern toolbox tools
+
+toolbox tools;
 
 int main(int ac, char **av)
 {
