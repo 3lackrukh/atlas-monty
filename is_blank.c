@@ -20,4 +20,3 @@ int is_blank(char *str)
 	}
 	return (1);
 }
-	

@@ -2,33 +2,32 @@
 
 /**
  * op_find- parses the file line in tools
- * checking for a matching operator. If found, the
- * corresponding function is called.
- * 
+ * checking for a matching operator.
+ * If found, the corresponding function is called.
+ *
  * Return: nothing.
 */
 
 void op_find(void)
 {
-    instruction_t ops [] = {
-	{"push", push},
-	{"pall", pall},
-	{NULL, NULL}
-    };
-    char *token;
-    int match, i;
+	instruction_t ops[] = {
+		{"push", push},
+		{"pall", pall},
+		{NULL, NULL}
+	};
+	char *token;
+	int match, i;
 
-     /*tokenize line read with delimiters ( $)*/
-    token = strtok(tools.line, " $\n");
-    match = 0;
-    for (i = 0; ops[i].opcode != NULL && !match; i++)
-    {
-        if (!strcmp(token, ops[i].opcode))
-        {
-            match = 1;
-            ops[i].f(&tools.stack, tools.line_ct);
-        }
-    }
+	token = strtok(tools.line, " $\n");
+	match = 0;
+	for (i = 0; ops[i].opcode != NULL && !match; i++)
+	{
+		if (!strcmp(token, ops[i].opcode))
+		{
+			match = 1;
+			ops[i].f(&tools.stack, tools.line_ct);
+		}
+	}
 	if (match == 0)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", tools.line_ct, token);

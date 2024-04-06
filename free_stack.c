@@ -2,7 +2,7 @@
 
 /**
  * free_stack- frees memory allocated to the stack.
- * 
+ *
  * Return: nothing.
 */
 

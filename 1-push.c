@@ -17,7 +17,7 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node = NULL;
 	char *val_str = NULL;
 	int value;
-	
+
 	val_str = strtok(NULL, " \n$");
 
 	if ((val_str == NULL) || !(is_num(val_str)))
