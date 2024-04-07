@@ -14,6 +14,7 @@ void op_find(void)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 	char *token;
