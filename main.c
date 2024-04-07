@@ -10,7 +10,7 @@
  * Return: nothing.
 */
 
-toolbox tools;
+toolbox_t tools;
 
 int main(int ac, char **av)
 {

@@ -13,6 +13,7 @@ void op_find(void)
 	instruction_t ops[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 	char *token;

@@ -52,12 +52,13 @@ typedef struct toolbox
         char *line;
         unsigned int line_ct;
         stack_t *stack;
-} toolbox;
+} toolbox_t;
 
-extern toolbox tools;
+extern toolbox_t tools;
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 void free_stack(void);
 void op_find(void);
 void create_stack(void);

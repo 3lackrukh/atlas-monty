@@ -11,7 +11,7 @@ push 5 $
 push 6 $
 pall$
 pint$
-pop$
+pint$
 pop$
 pint$
 swap$
